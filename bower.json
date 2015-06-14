@@ -15,7 +15,8 @@
     "qunit": "~1.17.1",
     "sjcl": "~1.0.3",
     "bootstrap": "~3.3.4",
-    "pwstrength-bootstrap": "~1.2.7"
+    "pwstrength-bootstrap": "~1.2.7",
+    "flatui": "*"
   },
   "private": true
 }
