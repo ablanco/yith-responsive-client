@@ -13,8 +13,9 @@ Router.map(function() {
         path: '/'
     });
     this.route('tos');
+    this.route('authorize');
 
-    this.resouce('passwords', {
+    this.route('passwords', {
         path: '/passwords/'
     }, function () {
         this.route('new');
