@@ -1,6 +1,6 @@
 /* jshint node: true */
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   var ENV = {
     modulePrefix: 'yith-responsive-client',
     environment: environment,
@@ -13,6 +13,12 @@ module.exports = function(environment) {
       }
     },
 
+    defaults: {
+      clientId: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+      clientBaseUrl: 'http://localhost:4200',
+      serverBaseUrl: 'http://localhost:6543'
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -22,7 +28,7 @@ module.exports = function(environment) {
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
@@ -40,7 +46,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.defaults.clientId = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
+    ENV.defaults.clientBaseUrl = 'https://yithlibrary-mobileclient.herokuapp.com';
+    ENV.defaults.serverBaseUrl = 'https://yithlibrary.herokuapp.com';
   }
 
   return ENV;
