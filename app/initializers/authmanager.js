@@ -10,5 +10,6 @@ export default {
         application.register('authmanager:main', AuthManager);
 
         application.inject('controller', 'authManager', 'authmanager:main');
+        application.inject('route', 'authManager', 'authmanager:main');
     }
 };

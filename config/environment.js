@@ -14,9 +14,9 @@ module.exports = function (environment) {
     },
 
     defaults: {
-      clientId: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+      clientId: 'c6de3a0b-4134-454e-8688-26a2bb150293',
       clientBaseUrl: 'http://localhost:4200',
-      serverBaseUrl: 'http://localhost:6543'
+      serverBaseUrl: 'http://localhost:6544'
     },
 
     APP: {
