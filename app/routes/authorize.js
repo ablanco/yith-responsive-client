@@ -5,10 +5,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     model: function () {
-        var authManager = this.authManager,
-            serverBaseUrl = this.settings.getSetting('serverBaseUrl');
-
-        return authManager.authorize(serverBaseUrl);
+        var serverBaseUrl = this.settings.getSetting('serverBaseUrl');
+        return this.authManager.authorize(serverBaseUrl);
     },
 
     afterModel: function () {

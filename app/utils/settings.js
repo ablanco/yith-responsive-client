@@ -8,7 +8,8 @@ import ENV from 'yith-responsive-client/config/environment';
 export default Ember.Object.extend({
 
     defaults: {
-        'serverBaseUrl': ENV.defaults.serverBaseUrl
+        serverBaseUrl: ENV.defaults.serverBaseUrl,
+        clientId: ENV.defaults.clientId
     },
 
     getSetting: function (name) {
@@ -28,5 +29,4 @@ export default Ember.Object.extend({
     deleteSetting: function (name) {
         window.localStorage.removeItem(name);
     }
-
 });

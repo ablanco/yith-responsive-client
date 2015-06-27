@@ -11,5 +11,6 @@ export default {
 
         application.inject('route', 'settings', 'settings:main');
         application.inject('controller', 'settings', 'settings:main');
+        application.inject('adapter', 'settings', 'settings:main');
     }
 };
