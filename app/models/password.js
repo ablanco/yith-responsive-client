@@ -5,11 +5,9 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
     account: DS.attr('string'),
-    creation: DS.attr(),
-    expiration: DS.attr(),
-    lastModification: DS.attr(),
+    creation: DS.attr('date'),
+    expiration: DS.attr('number'),
     notes: DS.attr('string'),
-    owner: DS.attr(),
     secret: DS.attr('string'),
     service: DS.attr('string'),
     tags: DS.attr()

@@ -1,1 +1,9 @@
-{{outlet}}
+<div class="row">
+  {{#each model as |password|}}
+    <div class="col-sm-6 col-md-4 col-lg-3"><div class="tile">
+      <h2>{{password.service}}</h2>
+      <p>Account: "{{password.account}}"</p>
+      <button class="btn btn-primary btn-large btn-block">View password</button>
+    </div></div>
+  {{/each}}
+</div>
