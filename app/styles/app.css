@@ -7,3 +7,7 @@ body { padding-top: 50px; }
   text-align: left;
   margin: 10px 0;
 }
+
+.tile h2 {
+  margin-top: 0;
+}

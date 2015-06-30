@@ -1,8 +1,22 @@
 <div class="row">
-  {{#each model as |password|}}
+  <div class="col-xs-12">
+    Tags and search box
+  </div>
+</div>
+<div class="row">
+  {{#each model key="id" as |password|}}
     <div class="col-sm-6 col-md-4 col-lg-3"><div class="tile">
-      <h2>{{password.service}}</h2>
-      <p>Account: "{{password.account}}"</p>
+      <div class="row">
+        <div class="col-xs-9">
+          <h2>{{password.service}}</h2>
+          <p>Account: "{{password.account}}"</p>
+        </div>
+        <div class="col-xs-3 text-right">
+          {{#link-to 'passwords.edit' password class="btn btn-info" title="Edit"}}
+            <span class="glyphicon glyphicon-edit"></span>
+          {{/link-to}}
+        </div>
+      </div>
       <button class="btn btn-primary btn-large btn-block">View password</button>
     </div></div>
   {{/each}}

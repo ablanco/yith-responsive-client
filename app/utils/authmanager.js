@@ -52,7 +52,7 @@ export default Ember.Object.extend({
         }
 
         return new Ember.RSVP.Promise(function (resolve, reject) {
-            $(window).on('message', function (event) {
+            Ember.$(window).on('message', function (event) {
                 var params;
                 if (event.originalEvent.origin === clientBaseUrl) {
                     dialog.close();
