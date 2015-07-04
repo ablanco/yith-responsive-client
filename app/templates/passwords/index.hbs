@@ -17,7 +17,9 @@
           {{/link-to}}
         </div>
       </div>
-      {{password-viewer-countdown password=password}}
+      {{password-viewer-countdown password=password action="decipher"}}
     </div></div>
   {{/each}}
 </div>
+
+{{ask-master-password flag=controller.requestMasterPassword}}
