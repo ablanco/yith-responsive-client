@@ -16,9 +16,14 @@ export default Ember.ArrayController.extend({
     }),
 
     completeDecipher: function (masterPassword) {
-        debugger;
         var data = this.get('passwordToDecipherData'),
+            secret;
+
+        try {
             secret = sjcl.decrypt(masterPassword, data.password);
+        } catch (err) {
+            // TODO
+        }
         data.callback(secret);
     },
 
@@ -36,7 +41,6 @@ export default Ember.ArrayController.extend({
         },
 
         sendMasterPassword: function (masterPassword) {
-            debugger;
             this.set('requestMasterPassword', false);
             // TODO save temporal copy of the masterPassword if necessary
             this.completeDecipher(masterPassword);
