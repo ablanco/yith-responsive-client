@@ -34,7 +34,7 @@ export default Ember.Component.extend({
             this.set('invalid', true);
         } else {
             this.set('invalid', false);
-            // TODO send to controller
+            this.sendAction('action', password);
         }
     })
 });
