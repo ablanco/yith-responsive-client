@@ -16,7 +16,7 @@
     "sjcl": "~1.0.3",
     "bootstrap": "~3.3.4",
     "pwstrength-bootstrap": "~1.2.7",
-    "flatui": "*"
+    "flat-ui": "~2.2.2"
   },
   "private": true
 }

@@ -19,19 +19,95 @@ var app = new EmberApp();
 
 app.import('bower_components/sjcl/sjcl.js');
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+app.import('bower_components/flat-ui/dist/js/flat-ui.js');
 app.import('bower_components/pwstrength-bootstrap/dist/pwstrength-bootstrap-1.2.7.js');
 
 app.import('bower_components/bootstrap/dist/css/bootstrap.css');
-app.import('bower_components/flatui/css/flat-ui.css');
+app.import('bower_components/flat-ui/dist/css/flat-ui.css');
 
-app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2', {
-    destDir: 'fonts'
+app.import('bower_components/flat-ui/dist/fonts/glyphicons/flat-ui-icons-regular.woff', {
+    destDir: 'fonts/glyphicons'
 });
-app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff', {
-    destDir: 'fonts'
+app.import('bower_components/flat-ui/dist/fonts/glyphicons/flat-ui-icons-regular.svg', {
+    destDir: 'fonts/glyphicons'
 });
-app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf', {
-    destDir: 'fonts'
+app.import('bower_components/flat-ui/dist/fonts/glyphicons/flat-ui-icons-regular.ttf', {
+    destDir: 'fonts/glyphicons'
+});
+app.import('bower_components/flat-ui/dist/fonts/glyphicons/flat-ui-icons-regular.eot', {
+    destDir: 'fonts/glyphicons'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-black.woff', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-black.svg', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-black.ttf', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-black.eot', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-bold.woff', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-bold.svg', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-bold.ttf', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-bold.eot', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-bolditalic.woff', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-bolditalic.svg', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-bolditalic.ttf', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-bolditalic.eot', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-italic.woff', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-italic.svg', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-italic.ttf', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-italic.eot', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-light.woff', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-light.svg', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-light.ttf', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-light.eot', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-regular.woff', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-regular.svg', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-regular.ttf', {
+    destDir: 'fonts/lato'
+});
+app.import('bower_components/flat-ui/dist/fonts/lato/lato-regular.eot', {
+    destDir: 'fonts/lato'
 });
 
 module.exports = app.toTree();
