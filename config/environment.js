@@ -26,7 +26,8 @@ module.exports = function (environment) {
 
     contentSecurityPolicy: {
       'style-src': "'self' 'unsafe-inline'",
-      'connect-src': "'self' http://localhost:6544"
+      'connect-src': "'self' http://localhost:6544",
+      'img-src': "'self' data:"
     }
   };
 

@@ -12,7 +12,12 @@ export default Ember.ArrayController.extend({
             var tags = password.get('tags');
             allTags = allTags.concat(tags);
         });
-        return allTags.uniq();
+        return allTags.uniq().map(function (tag, index) {
+            return {
+                text: tag,
+                index: index
+            };
+        });
     }),
 
     completeDecipher: function (masterPassword) {

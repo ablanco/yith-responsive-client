@@ -5,7 +5,11 @@
 </div>
 <div class="row">
   <div class="col-xs-12 col-sm-8">
-    <p>TODO tags</p>
+    <ul class="list-inline">
+      {{#each allTags key="index" as |tag|}}
+        <li>{{square-switch text=tag.text ident=tag.index}}</li>
+      {{/each}}
+    </ul>
   </div>
   <div class="col-xs-12 col-sm-4">
     <div class="input-group">
