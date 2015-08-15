@@ -32,6 +32,32 @@ export default Ember.ArrayController.extend({
         data.callback(secret);
     },
 
+    filteredPasswords: Ember.computed('searchText', '@each', function () {
+        var passwords = this.get('model'),
+            searchText = this.get('searchText');
+
+        if (searchText.length === 0) { return passwords; }
+
+        return passwords.filter(function (password) {
+            var include = false,
+                service = password.get('service'),
+                account = password.get('account'),
+                notes = password.get('notes');
+
+            if (!Ember.isNone(service)) {
+                include = include || service.indexOf(searchText) >=0;
+            }
+            if (!Ember.isNone(account)) {
+                include = include || account.indexOf(searchText) >=0;
+            }
+            if (!Ember.isNone(notes)) {
+                include = include || notes.indexOf(searchText) >=0;
+            }
+
+            return include;
+        });
+    }),
+
     actions: {
         decipher: function (password, callback) {
             this.set('passwordToDecipherData', {

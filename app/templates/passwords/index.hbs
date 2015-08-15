@@ -13,7 +13,7 @@
   </div>
   <div class="col-xs-12 col-sm-4">
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Search">
+      {{input class="form-control" placeholder="Search" value=searchText}}
       <span class="input-group-addon">
         <i class="fui-search"></i>
       </span>
@@ -21,7 +21,7 @@
   </div>
 </div>
 <div class="row">
-  {{#each model key="id" as |password|}}
+  {{#each filteredPasswords key="id" as |password|}}
     <div class="col-sm-6 col-md-4 col-lg-3"><div class="tile">
       <div class="row">
         <div class="col-xs-9">
