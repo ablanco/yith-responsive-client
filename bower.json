@@ -14,7 +14,7 @@
     "loader.js": "ember-cli/loader.js#3.2.0",
     "qunit": "~1.17.1",
     "sjcl": "~1.0.3",
-    "bootstrap": "~3.3.4",
+    "bootstrap": "~3.3.5",
     "pwstrength-bootstrap": "~1.2.7",
     "flat-ui": "~2.2.2"
   },
