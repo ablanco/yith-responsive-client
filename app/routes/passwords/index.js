@@ -12,5 +12,6 @@ export default Ember.Route.extend({
         controller.set('model', model);
         controller.set('requestMasterPassword', false);
         controller.set('searchText', '');
+        controller.set('activeTags', []);
     }
 });

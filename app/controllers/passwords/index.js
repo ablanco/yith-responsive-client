@@ -12,12 +12,7 @@ export default Ember.ArrayController.extend({
             var tags = password.get('tags');
             allTags = allTags.concat(tags);
         });
-        return allTags.uniq().map(function (tag, index) {
-            return {
-                text: tag,
-                index: index
-            };
-        });
+        return allTags.uniq();
     }),
 
     completeDecipher: function (masterPassword) {
@@ -32,26 +27,38 @@ export default Ember.ArrayController.extend({
         data.callback(secret);
     },
 
-    filteredPasswords: Ember.computed('searchText', '@each', function () {
+    filteredPasswords: Ember.computed('searchText', 'activeTags', '@each', function () {
         var passwords = this.get('model'),
+            activeTags = this.get('activeTags'),
             searchText = this.get('searchText');
 
-        if (searchText.length === 0) { return passwords; }
+        if (activeTags.length === 0 && searchText.length === 0) {
+            return passwords;
+        }
 
         return passwords.filter(function (password) {
             var include = false,
+                tags = password.get('tags'),
                 service = password.get('service'),
                 account = password.get('account'),
                 notes = password.get('notes');
 
-            if (!Ember.isNone(service)) {
-                include = include || service.indexOf(searchText) >=0;
+            if (activeTags.length > 0) {
+                include = include || tags.any(function (text) {
+                    return activeTags.contains(text);
+                });
             }
-            if (!Ember.isNone(account)) {
-                include = include || account.indexOf(searchText) >=0;
-            }
-            if (!Ember.isNone(notes)) {
-                include = include || notes.indexOf(searchText) >=0;
+
+            if (!include && searchText.length > 0) {
+                if (!Ember.isNone(service)) {
+                    include = include || service.indexOf(searchText) >=0;
+                }
+                if (!Ember.isNone(account)) {
+                    include = include || account.indexOf(searchText) >=0;
+                }
+                if (!Ember.isNone(notes)) {
+                    include = include || notes.indexOf(searchText) >=0;
+                }
             }
 
             return include;
@@ -59,6 +66,18 @@ export default Ember.ArrayController.extend({
     }),
 
     actions: {
+        toggleTag: function (text) {
+            var activeTags = this.get('activeTags'),
+                remove = activeTags.contains(text);
+
+            if (remove) {
+                this.set('activeTags', activeTags.without(text));
+            } else {
+                activeTags.push(text);
+                this.set('activeTags', activeTags.uniq());
+            }
+        },
+
         decipher: function (password, callback) {
             this.set('passwordToDecipherData', {
                 password: password,

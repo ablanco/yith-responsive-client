@@ -3,6 +3,23 @@
 
 body { padding-top: 50px; }
 
+.togglable-label i {
+  position: relative;
+  top: 1px;
+}
+
+.label-inactive {
+  background-color: #3498DB; /* Peter River */
+}
+
+.label-active {
+  background-color: #2980B9; /* Belize Hole */
+}
+
+.password-grid {
+  margin-top: 10px;
+}
+
 .tile {
   text-align: left;
 }

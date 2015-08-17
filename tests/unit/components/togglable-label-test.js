@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 
-moduleForComponent('square-switch', 'Unit | Component | square switch', {
+moduleForComponent('togglable-label', 'Unit | Component | togglable label', {
   // Specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar'],
   unit: true
