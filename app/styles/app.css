@@ -1,6 +1,17 @@
 /* Copyright (c) 2015 Alejandro Blanco <alejandro.b.e@gmail.com>
    MIT License */
 
+@font-face{
+    font-family: 'Fira Mono';
+    src: url('../fonts/fira/FiraMono-Regular.eot');
+    src: local('Fira Mono'),
+         url('../fonts/fira/FiraMono-Regular.eot') format('embedded-opentype'),
+         url('../fonts/fira/FiraMono-Regular.woff') format('woff'),
+         url('../fonts/fira/FiraMono-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
 body { padding-top: 50px; }
 
 .togglable-label i {
@@ -26,4 +37,8 @@ body { padding-top: 50px; }
 
 .tile h2 {
   margin-top: 0;
+}
+
+.fira {
+  font-family: "Fira Mono";
 }

@@ -113,5 +113,15 @@ module.exports = function(defaults) {
         destDir: 'fonts/lato'
     });
 
+    app.import('bower_components/fira/eot/FiraMono-Regular.eot', {
+        destDir: 'fonts/fira'
+    });
+    app.import('bower_components/fira/woff/FiraMono-Regular.woff', {
+        destDir: 'fonts/fira'
+    });
+    app.import('bower_components/fira/ttf/FiraMono-Regular.ttf', {
+        destDir: 'fonts/fira'
+    });
+
     return app.toTree();
 };
