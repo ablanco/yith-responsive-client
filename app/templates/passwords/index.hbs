@@ -7,7 +7,7 @@
   <div class="col-xs-12 col-sm-8">
     Filter by tags:
     <ul class="list-inline">
-      {{#each allTags key="@guid" as |tag|}}
+      {{#each allTags as |tag|}}
         <li>
           {{togglable-label text=tag action="toggleTag"}}
         </li>
@@ -24,7 +24,7 @@
   </div>
 </div>
 <div class="row password-grid">
-  {{#each filteredPasswords key="id" as |password|}}
+  {{#each filteredPasswords as |password|}}
     <div class="col-sm-6 col-md-4 col-lg-3"><div class="tile">
       <div class="row">
         <div class="col-xs-9">

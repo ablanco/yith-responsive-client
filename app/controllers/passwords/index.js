@@ -5,10 +5,10 @@
 
 import Ember from 'ember';
 
-export default Ember.ArrayController.extend({
-    allTags: Ember.computed('@each.tags', function () {
+export default Ember.Controller.extend({
+    allTags: Ember.computed('model.@each.tags', function () {
         var allTags = [];
-        this.forEach(function (password) {
+        this.get('model').forEach(function (password) {
             var tags = password.get('tags');
             allTags = allTags.concat(tags);
         });
@@ -27,10 +27,10 @@ export default Ember.ArrayController.extend({
         data.callback(secret);
     },
 
-    filteredPasswords: Ember.computed('searchText', 'activeTags', '@each', function () {
+    filteredPasswords: Ember.computed('searchText', 'activeTags', 'model', function () {
         var passwords = this.get('model'),
             activeTags = this.get('activeTags'),
-            searchText = this.get('searchText');
+            searchText = this.get('searchText').toLowerCase();
 
         if (activeTags.length === 0 && searchText.length === 0) {
             return passwords;
@@ -39,9 +39,9 @@ export default Ember.ArrayController.extend({
         return passwords.filter(function (password) {
             var include = false,
                 tags = password.get('tags'),
-                service = password.get('service'),
-                account = password.get('account'),
-                notes = password.get('notes');
+                service = password.get('service').toLowerCase(),
+                account = password.get('account').toLowerCase(),
+                notes = password.get('notes').toLowerCase();
 
             if (activeTags.length > 0) {
                 include = include || tags.any(function (text) {
