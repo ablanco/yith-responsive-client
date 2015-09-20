@@ -42,3 +42,18 @@ body { padding-top: 50px; }
 .fira {
   font-family: "Fira Mono";
 }
+
+.tagsinput-default .bootstrap-tagsinput {
+  border-color: #bdc3c7;
+  margin-bottom: 0;
+}
+
+.tagsinput-default .tag {
+  background-color: #2980B9;
+  color: #ffffff;
+}
+
+.tagsinput-default .tag:hover {
+  background-color: #3498DB;
+  color: #ffffff;
+}

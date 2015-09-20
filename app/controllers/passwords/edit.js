@@ -13,6 +13,10 @@ export default Ember.Controller.extend({
             this.set('tempPassword', newPassword);
         },
 
+        updateTags: function (newTags) {
+            this.set('tags', newTags);
+        },
+
         save: function () {
             var that = this;
 
