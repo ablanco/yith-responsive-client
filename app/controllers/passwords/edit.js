@@ -24,6 +24,14 @@ export default Ember.Controller.extend({
             this.get('model').save().then(function () {
                 that.transitionToRoute('passwords/index');
             });
+        },
+
+        delete: function () {
+            var that = this;
+
+            this.get('model').destroyRecord().then(function () {
+                that.transitionToRoute('passwords/index');
+            });
         }
     }
 });
