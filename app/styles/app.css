@@ -35,8 +35,17 @@ body { padding-top: 50px; }
   text-align: left;
 }
 
-.tile h2 {
-  margin-top: 0;
+.tile .tile-title {
+  line-height: 36px;
+}
+
+.tile p {
+  margin-bottom: 0;
+  line-height: 36px;
+}
+
+.tile .row {
+  margin-bottom: 3px;
 }
 
 .fira {

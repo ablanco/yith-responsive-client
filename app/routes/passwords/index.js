@@ -13,5 +13,12 @@ export default Ember.Route.extend({
         controller.set('requestMasterPassword', false);
         controller.set('searchText', '');
         controller.set('activeTags', []);
+    },
+
+    renderTemplate: function () {
+        Ember.run.scheduleOnce('afterRender', this, function () {
+            Ember.$('button[data-toggle=popover]').popover();
+        });
+        this._super();
     }
 });

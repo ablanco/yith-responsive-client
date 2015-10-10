@@ -23,18 +23,32 @@
     </div>
   </div>
 </div>
+
 <div class="row password-grid">
   {{#each filteredPasswords as |password|}}
     <div class="col-sm-6 col-md-4 col-lg-3"><div class="tile">
       <div class="row">
         <div class="col-xs-9">
           <h3 class="tile-title">{{password.service}}</h3>
-          <p>Account: "{{password.account}}"</p>
         </div>
         <div class="col-xs-3 text-right">
-          {{#link-to 'passwords.edit' password class="btn btn-info" title="Edit"}}
+          {{#link-to 'passwords.edit' password class="btn btn-sm btn-info" title="Edit"}}
             <span class="fui-gear"></span>
           {{/link-to}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-8">
+          <p>Account: "{{password.account}}"</p>
+        </div>
+        <div class="col-xs-4 text-right">
+          {{#if password.notes}}
+            <button type="button" class="btn btn-sm btn-default"
+                    data-container="body" data-toggle="popover"
+                    data-placement="left" data-content="{{password.notes}}">
+              Notes
+            </button>
+          {{/if}}
         </div>
       </div>
       {{password-viewer-countdown password=password action="decipher"}}
