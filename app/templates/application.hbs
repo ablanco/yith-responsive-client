@@ -1,7 +1,24 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/#">Yith Library Webclient</a>
+      <button type="button" class="navbar-toggle collapsed"
+              data-toggle="collapse" data-target="#navbar-collapsed">
+        <span class="fui-list"></span>
+      </button>
+      <a class="navbar-brand" href="/#">
+        <span class="visible-xs-inline">Yith Library</span>
+        <span class="hidden-xs">Yith Library Webclient</span>
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapsed">
+      <ul class="nav navbar-nav">
+        <li>
+          {{#link-to 'passwords'}}List{{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'passwords.new'}}New Password{{/link-to}}
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
