@@ -27,7 +27,9 @@ export default Ember.Controller.extend({
         save: function () {
             var that = this;
 
-            this.set('model.password', this.get('tempPassword'));
+            if (this.get('letsModifyPassword')) {
+                this.set('model.password', this.get('tempPassword'));
+            }
             this.get('model').save().then(function () {
                 that.transitionToRoute('passwords/index');
             });

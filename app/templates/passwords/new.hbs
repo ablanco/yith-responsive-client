@@ -1,1 +1,33 @@
-{{outlet}}
+<form>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <label for="service">Service</label>
+        {{input name="service" class="form-control" value=model.service}}
+      </div>
+      <div class="form-group">
+        <label for="account">Account</label>
+        {{input name="account" class="form-control" value=model.account}}
+      </div>
+      {{edit-password-field action="updatePassword"}}
+      <div class="form-group">
+        <label>Tags</label>
+        {{tags-input tags=model.tags action="updateTags"}}
+      </div>
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        {{textarea name="notes" class="form-control" rows="3"
+                   value=model.notes}}
+      </div>
+    </div>
+  </div>
+</form>
+<div class="row">
+  <div class="col-xs-12">
+    {{#link-to 'passwords' class="btn btn-default"}}Cancel{{/link-to}}
+    <button type="button" name="button" class="btn btn-primary pull-right"
+            {{action "save"}} disabled="{{if notReadyToSave 'disabled'}}">
+      Add
+    </button>
+  </div>
+</div>
