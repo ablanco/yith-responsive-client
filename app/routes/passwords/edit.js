@@ -10,8 +10,8 @@ export default Ember.Route.extend({
 
     setupController: function (controller, model) {
         this._super(controller, model);
-        this.set('tempPassword', null);
-        this.set('wantsToModifyPassword', false);
+        controller.set('tempPassword', null);
+        controller.set('wantsToModifyPassword', false);
     },
 
     actions: {
