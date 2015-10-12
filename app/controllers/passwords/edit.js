@@ -4,8 +4,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-    notReadyToSave: Ember.computed('tempPassword', function () {
-        return Ember.isEmpty(this.get('tempPassword'));
+    notReadyToSave: Ember.computed('wantsToModifyPassword', 'tempPassword', function () {
+        if (this.get('wantsToModifyPassword')) {
+            return Ember.isEmpty(this.get('tempPassword'));
+        }
+        return false;
     }),
 
     actions: {
@@ -15,6 +18,10 @@ export default Ember.Controller.extend({
 
         updateTags: function (newTags) {
             this.set('tags', newTags);
+        },
+
+        letsModifyPassword: function () {
+            this.set('wantsToModifyPassword', true);
         },
 
         save: function () {

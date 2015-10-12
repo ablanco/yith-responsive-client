@@ -9,7 +9,16 @@
         <label for="account">Account</label>
         {{input name="account" class="form-control" value=model.account}}
       </div>
-      {{edit-password-field action="updatePassword"}}
+
+      {{#if wantsToModifyPassword}}
+        {{edit-password-field action="updatePassword"}}
+      {{else}}
+        <button type="button" class="btn btn-default"
+                {{action "letsModifyPassword"}}>
+          Modify password
+        </button>
+      {{/if}}
+
       <div class="form-group">
         <label>Tags</label>
         {{tags-input tags=model.tags action="updateTags"}}

@@ -8,6 +8,12 @@ export default Ember.Route.extend({
         return this.store.findRecord('password', params.password_id);
     },
 
+    setupController: function (controller, model) {
+        this._super(controller, model);
+        this.set('tempPassword', null);
+        this.set('wantsToModifyPassword', false);
+    },
+
     actions: {
         willTransition: function () {
             this.controller.set('tempPassword', null);
