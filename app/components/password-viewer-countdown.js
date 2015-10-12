@@ -6,6 +6,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
     isBeingShown: false,
 
+    // TODO use clipboard.js
+
     renderPassword: function (secret) {
         this.set('passwordPlain', secret);
         this.set('countdown', 5);
