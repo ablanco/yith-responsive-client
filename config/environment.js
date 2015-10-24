@@ -15,8 +15,8 @@ module.exports = function (environment) {
 
     defaults: {
       clientId: 'c6de3a0b-4134-454e-8688-26a2bb150293',
-      clientBaseUrl: 'http://localhost:4200',
-      serverBaseUrl: 'http://localhost:6544'
+      clientBaseUrl: 'http://respyith:4400',
+      serverBaseUrl: 'http://localhost:6543'
     },
 
     APP: {
@@ -26,7 +26,7 @@ module.exports = function (environment) {
 
     contentSecurityPolicy: {
       'style-src': "'self' 'unsafe-inline'",
-      'connect-src': "'self' http://localhost:6544",
+      'connect-src': "'self' http://localhost:6543",
       'img-src': "'self' data:"
     }
   };
@@ -53,8 +53,8 @@ module.exports = function (environment) {
 
   if (environment === 'production') {
     ENV.defaults.clientId = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
-    ENV.defaults.clientBaseUrl = 'https://yithlibrary-mobileclient.herokuapp.com';
-    ENV.defaults.serverBaseUrl = 'https://yithlibrary.herokuapp.com';
+    ENV.defaults.clientBaseUrl = 'https://responsive.yithlibrary.com';
+    ENV.defaults.serverBaseUrl = 'https://www.yithlibrary.com';
   }
 
   return ENV;
