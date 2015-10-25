@@ -1,12 +1,34 @@
 // Copyright (c) 2015 Alejandro Blanco <alejandro.b.e@gmail.com>
 // MIT License
 
+/* global sjcl */
+
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
     notReadyToSave: Ember.computed('tempPassword', function () {
         return Ember.isEmpty(this.get('tempPassword'));
     }),
+
+    completeSave: function (masterPassword) {
+        var that = this,
+            ciphered;
+
+        // TODO validate masterPassword
+
+        try {
+            ciphered = sjcl.encrypt(masterPassword, this.get('tempPassword'));
+        } catch (err) {
+            // TODO
+        }
+        this.set('model.creation', new Date());
+        this.set('model.secret', ciphered);
+        masterPassword = null;
+
+        this.get('model').save().then(function () {
+            that.transitionToRoute('passwords/index');
+        });
+    },
 
     actions: {
         updatePassword: function (newPassword) {
@@ -17,13 +39,14 @@ export default Ember.Controller.extend({
             this.set('tags', newTags);
         },
 
-        save: function () {
-            var that = this;
+        sendMasterPassword: function (masterPassword) {
+            this.set('requestMasterPassword', false);
+            // TODO save temporal copy of the masterPassword if necessary
+            this.completeSave(masterPassword);
+        },
 
-            this.set('model.password', this.get('tempPassword'));
-            this.get('model').save().then(function () {
-                that.transitionToRoute('passwords/index');
-            });
+        save: function () {
+            this.set('requestMasterPassword', true);
         }
     }
 });

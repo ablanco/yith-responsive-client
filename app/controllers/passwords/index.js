@@ -24,6 +24,7 @@ export default Ember.Controller.extend({
         } catch (err) {
             // TODO
         }
+        masterPassword = null;
         data.callback(secret);
     },
 

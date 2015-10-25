@@ -14,7 +14,7 @@ module.exports = function (environment) {
     },
 
     defaults: {
-      clientId: 'c6de3a0b-4134-454e-8688-26a2bb150293',
+      clientId: 'f376787d-2d45-4a76-b1d4-658db155bfc8',
       clientBaseUrl: 'http://respyith:4400',
       serverBaseUrl: 'http://localhost:6543'
     },
@@ -26,8 +26,9 @@ module.exports = function (environment) {
 
     contentSecurityPolicy: {
       'style-src': "'self' 'unsafe-inline'",
-      'connect-src': "'self' http://localhost:6543",
-      'img-src': "'self' data:"
+      'connect-src': "'self' http://respyith:4400 ws://respyith:49152 http://localhost:6543",
+      'img-src': "'self' data:",
+      'script-src': "'self' http://respyith:49152",
     }
   };
 
