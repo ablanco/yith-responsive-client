@@ -31,7 +31,7 @@ export default Ember.Controller.extend({
                 this.set('model.password', this.get('tempPassword'));
             }
             this.get('model').save().then(function () {
-                that.transitionToRoute('passwords/index');
+                that.transitionToRoute('passwords.index');
             });
         },
 
@@ -39,7 +39,7 @@ export default Ember.Controller.extend({
             var that = this;
 
             this.get('model').destroyRecord().then(function () {
-                that.transitionToRoute('passwords/index');
+                that.transitionToRoute('passwords.index');
             });
         }
     }

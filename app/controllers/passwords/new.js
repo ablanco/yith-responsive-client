@@ -26,7 +26,7 @@ export default Ember.Controller.extend({
         masterPassword = null;
 
         this.get('model').save().then(function () {
-            that.transitionToRoute('passwords/index');
+            that.transitionToRoute('passwords.index');
         });
     },
 
