@@ -2,11 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     model: function () {
-        return this.store.createRecord('password');
+        return Ember.RSVP.all([
+            this.store.createRecord('password'),
+            this.store.findAll('password')
+        ]);
     },
 
-    setupController: function (controller, model) {
-        this._super(controller, model);
+    setupController: function (controller, models) {
+        this._super(controller, models[0]);
+        controller.set('allPasswords', models[1]);
         controller.set('tempPassword', null);
         controller.set('requestMasterPassword', false);
     },
