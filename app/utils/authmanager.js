@@ -9,7 +9,7 @@ export default Ember.Object.extend({
 
     clientId: ENV.defaults.clientId,
     clientBaseUrl: ENV.defaults.clientBaseUrl,
-    scope: 'read-passwords read-userinfo',
+    scope: 'read-passwords write-passwords read-userinfo',
     accessToken: null,
     accessTokenExpiration: null,
 
