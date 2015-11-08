@@ -31,7 +31,11 @@ export default Ember.Controller.extend({
         }
 
         try {
-            ciphered = sjcl.encrypt(masterPassword, this.get('tempPassword'));
+            ciphered = sjcl.encrypt(
+                masterPassword,
+                this.get('tempPassword'),
+                this.settings.getSetting('encryptOptions')
+            );
         } catch (err) {
             // TODO
         }

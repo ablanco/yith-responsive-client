@@ -9,7 +9,8 @@ export default Ember.Object.extend({
 
     defaults: {
         serverBaseUrl: ENV.defaults.serverBaseUrl,
-        clientId: ENV.defaults.clientId
+        clientId: ENV.defaults.clientId,
+        encryptOptions: ENV.defaults.encryptOptions
     },
 
     getSetting: function (name) {
