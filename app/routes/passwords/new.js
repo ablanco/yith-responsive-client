@@ -17,7 +17,13 @@ export default Ember.Route.extend({
 
     actions: {
         willTransition: function () {
+            var model = this.controller.get('model');
+
             this.controller.set('tempPassword', null);
+            if (Ember.isNone(model.get('id'))) {
+                // Cancelling creation, delete not-saved model
+                model.destroyRecord();
+            }
             return true;
         }
     }
