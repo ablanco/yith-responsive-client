@@ -12,11 +12,16 @@ export default Ember.Controller.extend({
 
     completeSave: function (masterPassword) {
         var that = this,
+            withSecret,
             reference,
             ciphered;
 
-        if (this.get('allPasswords.length') > 0) {
-            reference = this.get('allPasswords.firstObject.secret');
+        withSecret = this.get('allPasswords').filter(function (password) {
+            return password.get('secret.length') > 0;
+        });
+
+        if (withSecret.get('length') > 0) {
+            reference = withSecret.get('firstObject.secret');
             try {
                 sjcl.decrypt(masterPassword, reference);
             } catch (err) {
