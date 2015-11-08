@@ -16,7 +16,13 @@ export default Ember.Route.extend({
 
     actions: {
         willTransition: function () {
+            var model = this.controller.get('model');
+
             this.controller.set('tempPassword', null);
+            if (model.get('isDirty')) {
+                // Discard unsaved changes
+                model.rollback();
+            }
             return true;
         }
     }
