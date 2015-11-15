@@ -8,9 +8,18 @@ export default Ember.Route.extend({
         return this.store.findRecord('password', params.password_id);
     },
 
+    afterModel: function () {
+        // Make sure they are loaded
+        return this.store.findAll('password');
+    },
+
     setupController: function (controller, model) {
         this._super(controller, model);
+        this.store.findAll('password').then(function (passwords) {
+            controller.set('allPasswords', passwords);
+        });
         controller.set('tempPassword', null);
+        controller.set('requestMasterPassword', false);
         controller.set('wantsToModifyPassword', false);
     },
 
