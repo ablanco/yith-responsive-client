@@ -10,7 +10,11 @@ export default Ember.Object.extend({
     defaults: {
         serverBaseUrl: ENV.defaults.serverBaseUrl,
         clientId: ENV.defaults.clientId,
-        encryptOptions: ENV.defaults.encryptOptions
+        encryptOptions: ENV.defaults.encryptOptions,
+        passGenUseChars: true,
+        passGenUseNumbers: true,
+        passGenUseSymbols: true,
+        passGenLength: 20
     },
 
     getSetting: function (name) {

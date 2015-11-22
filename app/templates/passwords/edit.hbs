@@ -11,7 +11,7 @@
       </div>
 
       {{#if wantsToModifyPassword}}
-        {{edit-password-field action="updatePassword"}}
+        {{edit-password-field action="updatePassword" settings=settings}}
       {{else}}
         <button type="button" class="btn btn-default"
                 {{action "letsModifyPassword"}}>

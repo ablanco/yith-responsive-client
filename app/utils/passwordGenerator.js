@@ -1,0 +1,58 @@
+// Copyright (c) 2015 Alejandro Blanco <alejandro.b.e@gmail.com>
+// MIT License
+
+import Ember from 'ember';
+
+export default Ember.Object.extend({
+    getCharset: function (settings) {
+        // 33 start symbols
+        // 48 start numbers
+        // 58 start symbols again
+        // 65 start chars
+        // 91 start symbols again
+        // 97 start chars again
+        // 123 start symbols again
+        // 126 end (included)
+
+        var charset = "",
+            passGenUseChars = settings.get('passGenUseChars'),
+            passGenUseNumbers = settings.get('passGenUseNumbers'),
+            passGenUseSymbols = settings.get('passGenUseSymbols'),
+            i;
+
+        for (i = 33; i < 127; i += 1) {
+            if (i >= 33 && i < 48 && passGenUseSymbols) {
+                charset += String.fromCharCode(i);
+            } else if (i >= 48 && i < 58 && passGenUseNumbers) {
+                charset += String.fromCharCode(i);
+            } else if (i >= 58 && i < 65 && passGenUseSymbols) {
+                charset += String.fromCharCode(i);
+            } else if (i >= 65 && i < 91 && passGenUseChars) {
+                charset += String.fromCharCode(i);
+            } else if (i >= 91 && i < 97 && passGenUseSymbols) {
+                charset += String.fromCharCode(i);
+            } else if (i >= 97 && i < 123 && passGenUseChars) {
+                charset += String.fromCharCode(i);
+            } else if (i >= 123 && i < 127 && passGenUseSymbols) {
+                charset += String.fromCharCode(i);
+            }
+        }
+
+        return charset;
+    },
+
+    generate: function (settings) {
+        var charset = this.getCharset(settings),
+            length = settings.get('passGenLength'),
+            password = '',
+            aux,
+            i;
+
+        for (i = 0; i < length; i += 1) {
+            aux = Math.floor(Math.random() * charset.length);
+            password += charset.charAt(aux);
+        }
+
+        return password;
+    }
+});

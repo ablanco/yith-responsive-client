@@ -2,6 +2,7 @@
 // MIT License
 
 import Ember from 'ember';
+import passwordGenerator from 'yith-responsive-client/utils/passwordGenerator';
 
 export default Ember.Component.extend({
     pwstrengthOptions: {
@@ -36,5 +37,23 @@ export default Ember.Component.extend({
             this.set('invalid', false);
             this.sendAction('action', password);
         }
-    })
+    }),
+
+    showGeneratorOptions: false,
+
+    actions: {
+        showOptions: function () {
+            this.set('showGeneratorOptions', true);
+        },
+
+        generatePassword: function () {
+            var settings = this.get('settings'),
+                password = passwordGenerator.generate(settings);
+            // TODO
+
+            this.set('password1', password);
+            this.set('password2', password);
+            password = null;
+        }
+    }
 });
