@@ -41,9 +41,54 @@ export default Ember.Component.extend({
 
     showGeneratorOptions: false,
 
+    passGenUseChars: Ember.computed('settings', function () {
+        return this.get('settings').getSetting('passGenUseChars');
+    }),
+
+    passGenUseNumbers: Ember.computed('settings', function () {
+        return this.get('settings').getSetting('passGenUseNumbers');
+    }),
+
+    passGenUseSymbols: Ember.computed('settings', function () {
+        return this.get('settings').getSetting('passGenUseSymbols');
+    }),
+
+    passGenLength: Ember.computed('settings', {
+        get() {
+            return this.get('settings').getSetting('passGenLength');
+        },
+        set(key, value) {
+            this.get('settings').setSetting(key, parseInt(value, 10));
+        }
+    }),
+
     actions: {
         showOptions: function () {
             this.set('showGeneratorOptions', true);
+            Ember.run.scheduleOnce('afterRender', this, function () {
+                Ember.$('[data-toggle="checkbox"]').radiocheck();
+            });
+        },
+
+        togglePassGenUseChars: function () {
+            var settings = this.get('settings');
+
+            settings.setSetting('passGenUseChars',
+                                !settings.getSetting('passGenUseChars'));
+        },
+
+        togglePassGenUseNumbers: function () {
+            var settings = this.get('settings');
+
+            settings.setSetting('passGenUseNumbers',
+                                !settings.getSetting('passGenUseNumbers'));
+        },
+
+        togglePassGenUseSymbols: function () {
+            var settings = this.get('settings');
+
+            settings.setSetting('passGenUseSymbols',
+                                !settings.getSetting('passGenUseSymbols'));
         },
 
         generatePassword: function () {

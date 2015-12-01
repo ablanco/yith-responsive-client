@@ -15,9 +15,9 @@ export default Ember.Object.extend({
         // 126 end (included)
 
         var charset = "",
-            passGenUseChars = settings.get('passGenUseChars'),
-            passGenUseNumbers = settings.get('passGenUseNumbers'),
-            passGenUseSymbols = settings.get('passGenUseSymbols'),
+            passGenUseChars = settings.getSetting('passGenUseChars'),
+            passGenUseNumbers = settings.getSetting('passGenUseNumbers'),
+            passGenUseSymbols = settings.getSetting('passGenUseSymbols'),
             i;
 
         for (i = 33; i < 127; i += 1) {
@@ -43,7 +43,7 @@ export default Ember.Object.extend({
 
     generate: function (settings) {
         var charset = this.getCharset(settings),
-            length = settings.get('passGenLength'),
+            length = settings.getSetting('passGenLength'),
             password = '',
             aux,
             i;
