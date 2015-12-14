@@ -70,3 +70,14 @@ body { padding-top: 50px; }
 .form-group .row {
   margin-bottom: 5px;
 }
+
+.has-preview {
+  margin-bottom: -25px;
+}
+
+.preview-password {
+  float: right;
+  position: relative;
+  top: -35px;
+  right: 8px;
+}

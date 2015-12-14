@@ -27,6 +27,8 @@ export default Ember.Component.extend({
 
     invalid: false,
 
+    inputType: 'password',
+
     validate: Ember.observer('password1', 'password2', function () {
         var password = this.get('password1'),
             same = password === this.get('password2');
@@ -98,6 +100,22 @@ export default Ember.Component.extend({
             this.set('password1', password);
             this.set('password2', password);
             password = null;
+            Ember.run.scheduleOnce('afterRender', this, function () {
+                Ember.$('input[name=password1]').trigger('keyup');
+            });
+        },
+
+        previewPassword: function () {
+            var currentInput = this.get('inputType'),
+                newInput;
+
+            if (currentInput === 'text') {
+                newInput = 'password';
+            } else {
+                newInput = 'text';
+            }
+
+            this.set('inputType', newInput);
         }
     }
 });
