@@ -6,7 +6,6 @@ import Ember from 'ember';
 import ENV from 'yith-responsive-client/config/environment';
 
 export default Ember.Object.extend({
-
     defaults: {
         serverBaseUrl: ENV.defaults.serverBaseUrl,
         clientId: ENV.defaults.clientId,
