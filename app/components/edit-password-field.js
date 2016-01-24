@@ -43,18 +43,6 @@ export default Ember.Component.extend({
 
     showGeneratorOptions: false,
 
-    passGenUseChars: Ember.computed('settings', function () {
-        return this.get('settings').getSetting('passGenUseChars');
-    }),
-
-    passGenUseNumbers: Ember.computed('settings', function () {
-        return this.get('settings').getSetting('passGenUseNumbers');
-    }),
-
-    passGenUseSymbols: Ember.computed('settings', function () {
-        return this.get('settings').getSetting('passGenUseSymbols');
-    }),
-
     passGenLength: Ember.computed('settings', {
         get() {
             return this.get('settings').getSetting('passGenLength');
@@ -64,33 +52,47 @@ export default Ember.Component.extend({
         }
     }),
 
+    updatePassGenOption: function (name) {
+        var settings = this.get('settings');
+
+        settings.setSetting(name, !settings.getSetting(name));
+        this.notifyPropertyChange('settings');
+        this.recreatePassGenCheckboxes();
+    },
+
+    recreatePassGenCheckboxes: function () {
+        var settings = this.get('settings'),
+            that = this;
+
+        Ember.$('.pass-gen-checkboxes label.checkbox input').radiocheck('destroy');
+        Ember.$('.pass-gen-checkboxes label.checkbox input').remove();
+
+        [
+            'passGenUseChars',
+            'passGenUseNumbers',
+            'passGenUseSymbols'
+        ].forEach(function (name) {
+            var value = settings.getSetting(name),
+                action = value ? 'check' : 'uncheck',
+                input = '<input type="checkbox">';
+
+            Ember.$('label.' + name).prepend(input);
+            Ember.$('label.' + name + ' input').radiocheck();
+            Ember.$('label.' + name + ' input').radiocheck(action);
+            Ember.$('label.' + name + ' input').on('change', function () {
+                that.updatePassGenOption(name);
+            });
+        });
+    },
+
     actions: {
         showOptions: function () {
+            var that = this;
+
             this.set('showGeneratorOptions', true);
             Ember.run.scheduleOnce('afterRender', this, function () {
-                Ember.$('[data-toggle="checkbox"]').radiocheck();
+                that.recreatePassGenCheckboxes();
             });
-        },
-
-        togglePassGenUseChars: function () {
-            var settings = this.get('settings');
-
-            settings.setSetting('passGenUseChars',
-                                !settings.getSetting('passGenUseChars'));
-        },
-
-        togglePassGenUseNumbers: function () {
-            var settings = this.get('settings');
-
-            settings.setSetting('passGenUseNumbers',
-                                !settings.getSetting('passGenUseNumbers'));
-        },
-
-        togglePassGenUseSymbols: function () {
-            var settings = this.get('settings');
-
-            settings.setSetting('passGenUseSymbols',
-                                !settings.getSetting('passGenUseSymbols'));
         },
 
         generatePassword: function () {
