@@ -54,6 +54,17 @@
       </div>
       {{password-viewer-countdown password=password action="decipher"}}
     </div></div>
+  {{else}}
+    <div class="col-xs-12">
+      <div class="alert alert-info">
+        You don't have any passwords yet, please add one.
+      </div>
+      <div class="text-center">
+        {{#link-to 'passwords.new' class="btn btn-primary"}}
+          Add New Password
+        {{/link-to}}
+      </div>
+    </div>
   {{/each}}
 </div>
 
