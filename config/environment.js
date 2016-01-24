@@ -14,7 +14,7 @@ module.exports = function (environment) {
     },
 
     defaults: {
-      clientId: 'f376787d-2d45-4a76-b1d4-658db155bfc8',
+      clientId: '264cb197-75fd-4b38-b759-81c7750ad6dc',
       clientBaseUrl: 'http://respyith:4400',
       serverBaseUrl: 'http://localhost:6543',
       encryptOptions: {
