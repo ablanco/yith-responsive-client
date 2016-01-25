@@ -32,16 +32,17 @@
   </div>
 </form>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-xs-8">
     {{#link-to 'passwords' class="btn btn-default"}}Cancel{{/link-to}}
     <button type="button" name="button" class="btn btn-primary"
             {{action "save"}} disabled="{{if notReadyToSave 'disabled'}}">
       Save
     </button>
-    <button type="button" name="button" class="btn btn-danger pull-right"
-            {{action "delete"}}>
+  </div>
+  <div class="col-xs-4 text-right">
+    {{#ask-confirmation cssClass="btn btn-danger" action="delete"}}
       Delete
-    </button>
+    {{/ask-confirmation}}
   </div>
 </div>
 
