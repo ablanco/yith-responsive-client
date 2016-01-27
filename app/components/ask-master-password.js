@@ -20,8 +20,10 @@ export default Ember.Component.extend({
             $modal.off('hidden.bs.modal').on('hidden.bs.modal', function () {
                 that.set('flag', false);
             });
+            $modal.off('shown.bs.modal').on('shown.bs.modal', function () {
+                $modal.find('input').focus();
+            });
             $modal.modal('show');
-            $modal.find('input').focus();
         }
     }),
 
