@@ -24,6 +24,11 @@
 </form>
 <div class="row">
   <div class="col-xs-12">
+    {{#if errorMessage}}
+      <div class="alert alert-danger">
+        {{errorMessage}}
+      </div>
+    {{/if}}
     {{#link-to 'passwords' class="btn btn-default"}}Cancel{{/link-to}}
     <button type="button" name="button" class="btn btn-primary pull-right"
             {{action "save"}} disabled="{{if notReadyToSave 'disabled'}}">

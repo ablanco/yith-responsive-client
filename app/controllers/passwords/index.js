@@ -22,7 +22,8 @@ export default Ember.Controller.extend({
         try {
             secret = sjcl.decrypt(masterPassword, data.password);
         } catch (err) {
-            // TODO
+            this.set('errorMessage', 'Wrong master password');
+            return;
         }
         masterPassword = null;
         data.callback(secret);

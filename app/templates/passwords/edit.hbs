@@ -31,6 +31,15 @@
     </div>
   </div>
 </form>
+{{#if errorMessage}}
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="alert alert-danger">
+        {{errorMessage}}
+      </div>
+    </div>
+  </div>
+{{/if}}
 <div class="row">
   <div class="col-xs-8">
     {{#link-to 'passwords' class="btn btn-default"}}Cancel{{/link-to}}

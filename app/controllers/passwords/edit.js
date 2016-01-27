@@ -6,6 +6,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    errorMessage: '',
+
     notReadyToSave: Ember.computed('wantsToModifyPassword', 'tempPassword', function () {
         if (this.get('wantsToModifyPassword')) {
             return Ember.isEmpty(this.get('tempPassword'));
@@ -28,7 +30,7 @@ export default Ember.Controller.extend({
             try {
                 sjcl.decrypt(masterPassword, reference);
             } catch (err) {
-                // TODO wrong master password
+                this.set('errorMessage', 'Wrong master password');
                 return;
             }
         }
@@ -40,7 +42,9 @@ export default Ember.Controller.extend({
                 this.settings.getSetting('encryptOptions')
             );
         } catch (err) {
-            // TODO
+            this.set('errorMessage', 'Unknown error encrypting your ' +
+                                     'password, please try again later');
+            return;
         }
         this.set('model.modification', new Date());
         this.set('model.secret', ciphered);
@@ -76,10 +80,11 @@ export default Ember.Controller.extend({
             if (this.get('wantsToModifyPassword')) {
                 this.set('requestMasterPassword', true);
                 return;
-                // this.set('model.password', this.get('tempPassword'));
             }
             this.get('model').save().then(function () {
                 that.transitionToRoute('passwords.index');
+            }).catch(function () {
+                this.set('errorMessage', 'Unknown error saving your password');
             });
         },
 
