@@ -28,6 +28,9 @@ export default Ember.Component.extend({
             }
         };
         window.setTimeout(callback, 1000);
+        Ember.run.scheduleOnce('afterRender', this, function () {
+            that.$('input').select();
+        });
     },
 
     actions: {
