@@ -1,9 +1,13 @@
 // Copyright (c) 2015 Alejandro Blanco <alejandro.b.e@gmail.com>
 // MIT License
 
+/* global sjcl */
+
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+    errorMessage: '',
+
     showModal: Ember.observer('flag', function () {
         var that = this,
             $modal;
@@ -23,6 +27,20 @@ export default Ember.Component.extend({
 
     actions: {
         sendToController: function () {
+            var testPassword = this.get('testPassword');
+
+            if (!Ember.isNone(testPassword)) {
+                try {
+                    sjcl.decrypt(this.get('masterPassword'),
+                                 testPassword.get('secret'));
+                } catch (err) {
+                    this.set('errorMessage', 'Wrong master password');
+                    Ember.$('#master-password-modal input').select();
+                    return;
+                }
+            }
+            this.set('errorMessage', '');
+
             Ember.$('#master-password-modal').modal('hide');
             this.sendAction('action', this.get('masterPassword'));
         }

@@ -66,6 +66,10 @@ export default Ember.Controller.extend({
         });
     }),
 
+    onePassword: Ember.computed('model.[]', function () {
+        return this.get('model.firstObject');
+    }),
+
     actions: {
         toggleTag: function (text) {
             var activeTags = this.get('activeTags'),

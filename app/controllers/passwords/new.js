@@ -10,15 +10,17 @@ export default Ember.Controller.extend({
         return Ember.isEmpty(this.get('tempPassword'));
     }),
 
-    completeSave: function (masterPassword) {
-        var that = this,
-            withSecret,
-            reference,
-            ciphered;
-
-        withSecret = this.get('allPasswords').filter(function (password) {
+    withSecret: Ember.computed('allPasswords', function () {
+        return this.get('allPasswords').filter(function (password) {
             return password.get('secret.length') > 0;
         });
+    }),
+
+    completeSave: function (masterPassword) {
+        var that = this,
+            withSecret = this.get('withSecret'),
+            reference,
+            ciphered;
 
         if (withSecret.get('length') > 0) {
             reference = withSecret.get('firstObject.secret');
