@@ -35,7 +35,7 @@ export default Ember.Controller.extend({
             searchText = this.get('searchText').toLowerCase();
 
         if (activeTags.length === 0 && searchText.length === 0) {
-            return passwords;
+            return passwords.sortBy('service');
         }
 
         return passwords.filter(function (password) {
@@ -64,7 +64,7 @@ export default Ember.Controller.extend({
             }
 
             return include;
-        });
+        }).sortBy('service');
     }),
 
     onePassword: Ember.computed('model.[]', function () {
