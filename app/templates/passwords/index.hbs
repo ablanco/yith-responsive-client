@@ -64,13 +64,13 @@
       </div>
       {{password-viewer-countdown password=password action="decipher"}}
     </div></div>
-    {{#if (equal index 3)}}
+    {{#if (equal (modulo index 4) 3)}}
       <div class="clearfix visible-lg-block"></div>
     {{/if}}
-    {{#if (equal index 2)}}
+    {{#if (equal (modulo index 3) 2)}}
       <div class="clearfix visible-md-block"></div>
     {{/if}}
-    {{#if (equal index 1)}}
+    {{#if (equal (modulo index 2) 1)}}
       <div class="clearfix visible-sm-block"></div>
     {{/if}}
   {{else}}
