@@ -4,6 +4,7 @@
 /* global sjcl */
 
 import Ember from 'ember';
+import debounce from '../../utils/debounce';
 
 export default Ember.Controller.extend({
     allTags: Ember.computed('model.@each.tags', function () {
@@ -29,7 +30,11 @@ export default Ember.Controller.extend({
         data.callback(secret);
     },
 
-    filteredPasswords: Ember.computed('searchText', 'activeTags', 'model', function () {
+    updateFilter: Ember.observer('searchText', debounce(function () {
+        this.set('filterText', this.get('searchText'));
+    }, 500)),
+
+    filteredPasswords: Ember.computed('filterText', 'activeTags', 'model', function () {
         var passwords = this.get('model'),
             activeTags = this.get('activeTags'),
             searchText = this.get('searchText').toLowerCase();
