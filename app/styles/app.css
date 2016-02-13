@@ -2,17 +2,21 @@
    MIT License */
 
 @font-face{
-    font-family: 'Fira Mono';
-    src: url('../fonts/fira/FiraMono-Regular.eot');
-    src: local('Fira Mono'),
-         url('../fonts/fira/FiraMono-Regular.eot') format('embedded-opentype'),
-         url('../fonts/fira/FiraMono-Regular.woff') format('woff'),
-         url('../fonts/fira/FiraMono-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
+  font-family: 'Fira Mono';
+  src: url('../fonts/fira/FiraMono-Regular.eot');
+  src: local('Fira Mono'),
+       url('../fonts/fira/FiraMono-Regular.eot') format('embedded-opentype'),
+       url('../fonts/fira/FiraMono-Regular.woff') format('woff'),
+       url('../fonts/fira/FiraMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
 }
 
 body { padding-top: 50px; }
+
+.togglable-label {
+  cursor: pointer;
+}
 
 .togglable-label i {
   position: relative;
