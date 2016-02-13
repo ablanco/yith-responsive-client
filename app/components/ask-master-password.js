@@ -23,6 +23,12 @@ export default Ember.Component.extend({
             $modal.off('shown.bs.modal').on('shown.bs.modal', function () {
                 $modal.find('input').focus();
             });
+            $modal.find('input').off('keypress').on('keypress', function (evt) {
+                if (evt.keyCode === 13) { // Enter key
+                    evt.preventDefault();
+                    $modal.find('button.btn-primary').trigger('click');
+                }
+            });
             $modal.modal('show');
         }
     }),
