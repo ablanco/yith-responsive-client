@@ -10,7 +10,7 @@ export default Ember.Component.extend({
 
     renderPassword: function (secret) {
         this.set('passwordPlain', secret);
-        this.set('countdown', 5);
+        this.set('countdown', 10);
         this.set('isBeingShown', true);
 
         var that = this,
