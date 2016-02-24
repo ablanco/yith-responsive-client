@@ -12,7 +12,22 @@
   font-style: normal;
 }
 
-body { padding-top: 50px; }
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  #quote {
+    height: 450px;
+    position: relative;
+  }
+
+  #quote blockquote {
+    position: absolute;
+    bottom: 0;
+  }
+}
 
 .loading {
   margin-top: 70px;
