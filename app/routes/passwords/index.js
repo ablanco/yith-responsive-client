@@ -9,8 +9,12 @@ export default Ember.Route.extend({
     },
 
     setupController: function (controller, model) {
+        var settings = this.get('settings');
+
         controller.set('model', model);
         controller.set('requestMasterPassword', false);
+        controller.set('rememberMaster',
+                       settings.getSetting('rememberMasterPassword'));
         controller.set('searchText', '');
         controller.set('filterText', '');
         controller.set('activeTags', []);

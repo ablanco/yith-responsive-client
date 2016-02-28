@@ -13,7 +13,8 @@ export default Ember.Object.extend({
         passGenUseChars: true,
         passGenUseNumbers: true,
         passGenUseSymbols: true,
-        passGenLength: 20
+        passGenLength: 20,
+        rememberMasterPassword: false
     },
 
     getSetting: function (name) {

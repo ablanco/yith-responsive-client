@@ -85,6 +85,10 @@ body {
   background-color: #2980B9; /* Belize Hole */
 }
 
+.bootstrap-switch > div > span {
+  line-height: 20px;
+}
+
 .password-grid {
   margin-top: 10px;
 }
