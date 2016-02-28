@@ -1,7 +1,7 @@
 // Copyright (c) 2015 Alejandro Blanco <alejandro.b.e@gmail.com>
 // MIT License
 
-/* global sjcl, YithResponsiveClient */
+/* global sjcl */
 
 import Ember from 'ember';
 import debounce from '../../utils/debounce';
@@ -92,7 +92,7 @@ export default Ember.Controller.extend({
         toggleRememberMaster: function (newValue) {
             this.get('settings').setSetting('rememberMasterPassword', newValue);
             if (!newValue) {
-                YithResponsiveClient.masterPassword = null;
+                window.yithMasterPassword = null;
             }
         },
 
@@ -102,9 +102,9 @@ export default Ember.Controller.extend({
                 callback: callback
             });
             // 1. Check if the master password is in memory
-            if (!Ember.isNone(YithResponsiveClient.masterPassword)) {
+            if (!Ember.isNone(window.yithMasterPassword)) {
                 // 2a. Decipher password
-                this.completeDecipher(YithResponsiveClient.masterPassword);
+                this.completeDecipher(window.yithMasterPassword);
             } else {
                 // 2b. If not, ask for it
                 this.set('requestMasterPassword', true);
@@ -117,9 +117,9 @@ export default Ember.Controller.extend({
 
             this.set('requestMasterPassword', false);
             if (settings.getSetting('rememberMasterPassword')) {
-                YithResponsiveClient.masterPassword = masterPassword;
+                window.yithMasterPassword = masterPassword;
                 setTimeout(function () {
-                    YithResponsiveClient.masterPassword = null;
+                    window.yithMasterPassword = null;
                 }, 600000); // 10 min
             }
             this.completeDecipher(masterPassword);

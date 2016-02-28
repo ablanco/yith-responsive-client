@@ -1,7 +1,7 @@
 // Copyright (c) 2015 Alejandro Blanco <alejandro.b.e@gmail.com>
 // MIT License
 
-/* global sjcl, YithResponsiveClient */
+/* global sjcl */
 
 import Ember from 'ember';
 
@@ -73,9 +73,9 @@ export default Ember.Controller.extend({
 
             this.set('requestMasterPassword', false);
             if (settings.getSetting('rememberMasterPassword')) {
-                YithResponsiveClient.masterPassword = masterPassword;
+                window.yithMasterPassword = masterPassword;
                 setTimeout(function () {
-                    YithResponsiveClient.masterPassword = null;
+                    window.yithMasterPassword = null;
                 }, 600000); // 10 min
             }
             this.completeSave(masterPassword);
@@ -85,8 +85,8 @@ export default Ember.Controller.extend({
             var that = this;
 
             if (this.get('wantsToModifyPassword')) {
-                if (!Ember.isNone(YithResponsiveClient.masterPassword)) {
-                    this.completeSave(YithResponsiveClient.masterPassword);
+                if (!Ember.isNone(window.yithMasterPassword)) {
+                    this.completeSave(window.yithMasterPassword);
                 } else {
                     this.set('requestMasterPassword', true);
                 }
