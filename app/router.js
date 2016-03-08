@@ -22,6 +22,7 @@ Router.map(function() {
         this.route('edit', {
             path: '/edit/:password_id'
         });
+        this.route('change-master-password');
     });
 });
 
