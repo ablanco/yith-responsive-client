@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
             var tags = password.get('tags');
             allTags = allTags.concat(tags);
         });
-        return allTags.uniq();
+        return allTags.uniq().sort();
     }),
 
     completeDecipher: function (masterPassword) {
