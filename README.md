@@ -7,7 +7,7 @@ Server code: https://github.com/lorenzogil/yith-library-server
 This web client lets the user access to his passwords and secrets, safely
 stored at the Yith Library server. View, editing and deleting are supported.
 
-There is an instance running at http://yithlibrary.com/
+There is an instance running at https://responsive.yithlibrary.com/
 
 ## Development
 
