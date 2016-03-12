@@ -16,7 +16,7 @@ need it installed and working before modifying anything.
 
 You can run a development server with:
 
-  $ ember server -p 4400
+    $ ember server -p 4400
 
 The `-p 4400` options is to make it serve the application in that port. That is
 not required, but it's the default development configuration in the Yith
@@ -24,7 +24,7 @@ Library server for CORS.
 
 You can build the whole thing with:
 
-  $ ember build -p
+    $ ember build -p
 
 That will generate the production files and will allow you to make your own
 deployment.
