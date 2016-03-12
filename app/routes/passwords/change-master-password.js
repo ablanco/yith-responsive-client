@@ -14,5 +14,14 @@ export default Ember.Route.extend({
         controller.set('newMasterPassword1', '');
         controller.set('newMasterPassword2', '');
         controller.set('wrongMasterPassword', false);
+    },
+
+    renderTemplate: function () {
+        Ember.run.scheduleOnce('afterRender', this, function () {
+            var options = this.settings.getSetting('pwstrengthOptions');
+            options.ui.container = '#change-master-password';
+            Ember.$('input[name="new-password-1"]').pwstrength(options);
+        });
+        this._super();
     }
 });

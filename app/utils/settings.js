@@ -14,7 +14,22 @@ export default Ember.Object.extend({
         passGenUseNumbers: true,
         passGenUseSymbols: true,
         passGenLength: 20,
-        rememberMasterPassword: false
+        rememberMasterPassword: false,
+        pwstrengthOptions: {
+            rules: {
+                activated: {
+                    wordTwoCharacterClasses: true,
+                    wordRepetitions: true
+                }
+            },
+            ui: {
+                showVerdictsInsideProgressBar: true,
+                container: '#pwstrength-container',
+                viewports: {
+                    progress: '#password-strength-meter'
+                }
+            }
+        }
     },
 
     getSetting: function (name) {

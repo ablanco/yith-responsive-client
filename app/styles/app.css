@@ -129,7 +129,8 @@ body {
   color: #ffffff;
 }
 
-.form-group .row {
+.form-group .row,
+.mb5 {
   margin-bottom: 5px;
 }
 

@@ -5,24 +5,10 @@ import Ember from 'ember';
 import generatePassword from 'yith-responsive-client/utils/passwordGenerator';
 
 export default Ember.Component.extend({
-    pwstrengthOptions: {
-        rules: {
-            activated: {
-                wordTwoCharacterClasses: true,
-                wordRepetitions: true
-            }
-        },
-        ui: {
-            showVerdictsInsideProgressBar: true,
-            container: '#password-edit-field',
-            viewports: {
-                progress: '#password-strength-meter'
-            }
-        }
-    },
-
     didInsertElement: function () {
-        Ember.$('input[name="password1"]').pwstrength(this.pwstrengthOptions);
+        var options = this.settings.getSetting('pwstrengthOptions');
+            options.ui.container = '#password-edit-field';
+        Ember.$('input[name="password1"]').pwstrength(options);
     },
 
     invalid: false,
