@@ -4,20 +4,12 @@
   "dependencies": {
     "bootstrap": "~3.3.5",
     "clipboard": "~1.4.1",
-    "ember": "2.1.1",
-    "ember-cli-shims": "0.0.6",
-    "ember-cli-test-loader": "0.2.1",
-    "ember-data": "2.1.0",
-    "ember-load-initializers": "0.1.7",
-    "ember-qunit": "0.4.16",
-    "ember-qunit-notifications": "0.1.0",
-    "ember-resolver": "~0.1.20",
+    "ember": "~2.8.0",
+    "ember-cli-shims": "0.1.1",
     "fira": "~0.1.0",
     "flat-ui": "~2.2.2",
     "jquery": "^2.1.4",
-    "loader.js": "ember-cli/loader.js#3.2.1",
-    "pwstrength-bootstrap": "~1.2.7",
-    "qunit": "~1.20.0",
+    "pwstrength-bootstrap": "~2.0.2",
     "sjcl": "~1.0.3"
   },
   "private": true
