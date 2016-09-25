@@ -7,8 +7,11 @@ import generatePassword from 'yith-responsive-client/utils/passwordGenerator';
 export default Ember.Component.extend({
     didInsertElement: function () {
         var options = this.settings.getSetting('pwstrengthOptions');
-            options.ui.container = '#password-edit-field';
-        Ember.$('input[name="password1"]').pwstrength(options);
+
+        options.ui.container = '#password-edit-field';
+        setTimeout(function () {
+            Ember.$('input[name="password1"]').pwstrength(options);
+        }, 100);
     },
 
     invalid: false,
