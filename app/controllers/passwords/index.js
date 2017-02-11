@@ -37,9 +37,10 @@ export default Ember.Controller.extend({
     filteredPasswords: Ember.computed('filterText', 'activeTags', 'model', function () {
         var passwords = this.get('model'),
             activeTags = this.get('activeTags'),
-            searchText = this.get('searchText').toLowerCase();
+            query = this.get('searchText').toLowerCase(),
+            searchTexts = query.split(' ');
 
-        if (activeTags.length === 0 && searchText.length === 0) {
+        if (activeTags.length === 0 && query.length === 0) {
             return passwords.sortBy('service');
         }
 
@@ -56,17 +57,19 @@ export default Ember.Controller.extend({
                 });
             }
 
-            if (!include && searchText.length > 0) {
-                if (!Ember.isNone(service)) {
-                    include = include || service.indexOf(searchText) >=0;
+            searchTexts.forEach(function (searchText) {
+                if (!include && searchText.length > 0) {
+                    if (!Ember.isNone(service)) {
+                        include = include || service.indexOf(searchText) >=0;
+                    }
+                    if (!Ember.isNone(account)) {
+                        include = include || account.indexOf(searchText) >=0;
+                    }
+                    if (!Ember.isNone(notes)) {
+                        include = include || notes.indexOf(searchText) >=0;
+                    }
                 }
-                if (!Ember.isNone(account)) {
-                    include = include || account.indexOf(searchText) >=0;
-                }
-                if (!Ember.isNone(notes)) {
-                    include = include || notes.indexOf(searchText) >=0;
-                }
-            }
+            });
 
             return include;
         }).sortBy('service');
