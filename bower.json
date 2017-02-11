@@ -1,6 +1,6 @@
 {
   "name": "yith-responsive-client",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "dependencies": {
     "bootstrap": "~3.3.7",
     "clipboard": "~1.6.0",
