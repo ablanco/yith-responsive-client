@@ -28,9 +28,5 @@ export default Ember.Route.extend({
             new Clipboard('.clipboard');
         });
         this._super();
-    },
-
-    actions: {
-        willTransition: function (transition) {}
     }
 });
