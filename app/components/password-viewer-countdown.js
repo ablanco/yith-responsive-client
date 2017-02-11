@@ -6,7 +6,9 @@ import Ember from 'ember';
 export default Ember.Component.extend({
     isBeingShown: false,
 
-    // TODO use clipboard.js
+    idSelector: Ember.computed('password.id', function () {
+        return 'id' + this.get('password.id');
+    }),
 
     renderPassword: function (secret) {
         this.set('passwordPlain', secret);

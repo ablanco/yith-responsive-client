@@ -134,6 +134,10 @@ body {
   margin-bottom: 5px;
 }
 
+.mt5 {
+  margin-top: 5px;
+}
+
 .has-preview {
   margin-bottom: -25px;
 }

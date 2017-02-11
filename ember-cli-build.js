@@ -24,6 +24,7 @@ module.exports = function(defaults) {
     app.import('bower_components/bootstrap/dist/js/bootstrap.js');
     app.import('bower_components/flat-ui/dist/js/flat-ui.js');
     app.import('bower_components/pwstrength-bootstrap/dist/pwstrength-bootstrap.js');
+    app.import('bower_components/clipboard/dist/clipboard.js');
 
     app.import('bower_components/bootstrap/dist/css/bootstrap.css');
     app.import('bower_components/flat-ui/dist/css/flat-ui.css');
