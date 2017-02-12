@@ -1,6 +1,6 @@
 {
   "name": "yith-responsive-client",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A modern Yith Library client for both mobile and desktop devices",
   "private": true,
   "directories": {
