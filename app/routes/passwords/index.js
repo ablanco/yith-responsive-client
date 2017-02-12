@@ -28,5 +28,12 @@ export default Ember.Route.extend({
             new Clipboard('.clipboard');
         });
         this._super();
+    },
+
+    actions: {
+        willTransition: function () {
+            Ember.$('button[data-toggle=popover]').popover('hide');
+            return true;
+        }
     }
 });
