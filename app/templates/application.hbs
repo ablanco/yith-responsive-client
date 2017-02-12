@@ -1,17 +1,19 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed"
-              data-toggle="collapse" data-target="#navbar-collapsed">
-        <span class="fui-list"></span>
-      </button>
+      {{#if authManager.hasValidAccessToken}}
+        <button type="button" class="navbar-toggle collapsed"
+                data-toggle="collapse" data-target="#navbar-collapsed">
+          <span class="fui-list"></span>
+        </button>
+      {{/if}}
       <a class="navbar-brand" href="/#">
         <span class="visible-xs-inline">Yith Library</span>
         <span class="hidden-xs">Yith Library Webclient</span>
       </a>
     </div>
-    <div class="collapse navbar-collapse" id="navbar-collapsed">
-      {{#if authManager.hasValidAccessToken}}
+    {{#if authManager.hasValidAccessToken}}
+      <div class="collapse navbar-collapse" id="navbar-collapsed">
         <ul class="nav navbar-nav">
           <li>
             {{#link-to 'passwords'}}List{{/link-to}}
@@ -25,8 +27,8 @@
             {{/link-to}}
           </li>
         </ul>
-      {{/if}}
-    </div>
+      </div>
+    {{/if}}
   </div>
 </nav>
 <div class="container">
