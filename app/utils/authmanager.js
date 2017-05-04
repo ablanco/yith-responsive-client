@@ -28,7 +28,7 @@ export default Ember.Object.extend({
             '?response_type=token',
             '&redirect_uri=' + encodeURIComponent(this.get('redirectUri')),
             '&client_id=' + encodeURIComponent(this.get('clientId')),
-            '&scope=' + encodeURIComponent(this.get('scope')),
+            '&scope=' + encodeURIComponent(this.get('scope'))
         ].join('');
     }.property('authBaseUri', 'providerId', 'clientId', 'scope'),
 

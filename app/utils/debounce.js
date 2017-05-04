@@ -25,10 +25,12 @@ export default function debounce(func, wait, immediate) {
     };
 
     return function() {
+        var callNow;
+
         context = this;
         args = arguments;
         timestamp = now();
-        var callNow = immediate && !timeout;
+        callNow = immediate && !timeout;
         if (!timeout) { timeout = setTimeout(later, wait); }
         if (callNow) {
             result = func.apply(context, args);

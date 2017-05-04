@@ -11,12 +11,12 @@ export default Ember.Component.extend({
     }),
 
     renderPassword: function (secret) {
+        var that = this,
+            callback;
+
         this.set('passwordPlain', secret);
         this.set('countdown', 10);
         this.set('isBeingShown', true);
-
-        var that = this,
-            callback;
 
         callback  = function () {
             var countdown = that.get('countdown');

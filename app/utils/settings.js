@@ -36,9 +36,8 @@ export default Ember.Object.extend({
         var setting = window.localStorage.getItem(name);
         if (setting === null) {
             return this.defaults[name] || null;
-        } else {
-            return JSON.parse(setting);
         }
+        return JSON.parse(setting);
     },
 
     setSetting: function (name, value) {

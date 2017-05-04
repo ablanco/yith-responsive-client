@@ -7,6 +7,9 @@ module.exports = {
     env: {
         browser: true
     },
+    globals: {
+        module: false
+    },
     extends: "eslint:recommended",
     "rules": {
         "guard-for-in": 2,

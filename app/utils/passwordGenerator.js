@@ -11,7 +11,7 @@ var getCharset = function (settings) {
     // 123 start symbols again
     // 126 end (included)
 
-    var charset = "",
+    var charset = '',
     passGenUseChars = settings.getSetting('passGenUseChars'),
     passGenUseNumbers = settings.getSetting('passGenUseNumbers'),
     passGenUseSymbols = settings.getSetting('passGenUseSymbols'),

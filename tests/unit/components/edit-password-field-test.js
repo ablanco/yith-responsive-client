@@ -7,10 +7,11 @@ moduleForComponent('edit-password-field', 'Unit | Component | edit password fiel
 });
 
 test('it renders', function(assert) {
+  var component;
   assert.expect(2);
 
   // Creates the component instance
-  var component = this.subject();
+  component = this.subject();
   assert.equal(component._state, 'preRender');
 
   // Renders the component to the page

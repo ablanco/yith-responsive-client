@@ -22,9 +22,9 @@ module.exports = function (environment) {
         iter:100000,
         ks:128,
         ts:64,
-        mode:"ccm",
-        adata:"",
-        cipher:"aes"
+        mode: 'ccm',
+        adata: '',
+        cipher: 'aes'
       }
     },
 
@@ -34,10 +34,12 @@ module.exports = function (environment) {
     },
 
     contentSecurityPolicy: {
+      /* eslint-disable quotes */
       'style-src': "'self' 'unsafe-inline'",
       'connect-src': "'self' http://respyith:4400 ws://respyith:49152 http://localhost:6543",
       'img-src': "'self' data:",
-      'script-src': "'self' http://respyith:49152",
+      'script-src': "'self' http://respyith:49152"
+      /* eslint-enable quotes */
     }
   };
 
