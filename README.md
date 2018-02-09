@@ -1,4 +1,6 @@
 # Yith Library Responsive Web Client
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fablanco%2Fyith-responsive-client.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fablanco%2Fyith-responsive-client?ref=badge_shield)
+
 
 A modern client for both mobile and desktop devices.
 
@@ -49,3 +51,7 @@ Licensed under Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
 
 For a copy of this license see
 <http://creativecommons.org/licenses/by-sa/3.0/legalcode>
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fablanco%2Fyith-responsive-client.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fablanco%2Fyith-responsive-client?ref=badge_large)
